@@ -17,19 +17,18 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "cross-env": "^7.0.2",
-    "postcss": "^8.1.6",
+    "postcss": "^8.1.7",
+    "postcss-cli": "^8.2.0",
     "tailwindcss": "^1.9.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:tailwind": "tailwindcss build src/tailwind/tailwind.css -o src/tailwind/tailwind.output.css",
-    "watch:tailwind": "postcss -w src/tailwind/tailwind.css -o src/tailwind/tailwind.output.css",
-    "prestart": "npm run build:tailwind",
-    "prebuild": "cross-env NODE_ENV=production npm run build:tailwind",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "concurrently -n \"css,react\" \"npm run css:watch\" \"react-scripts start\"",
+    "build": "cross-env NODE_ENV=production npm run css:build && react-scripts build",
+    "css:build": "postcss src/tailwind/tailwind.css -o src/tailwind/tailwind.output.css",
+    "css:watch": "postcss --watch src/tailwind/tailwind.css -o src/tailwind/tailwind.output.css",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
