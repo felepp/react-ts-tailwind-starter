@@ -82,9 +82,7 @@ function App() {
                       </span>
                     </div>
                     <div className="ml-4 flex-shrink-0">
-                      <button className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                        Download
-                      </button>
+                      <button className="btn-blue">Download</button>
                     </div>
                   </li>
                   <li className="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
@@ -105,9 +103,7 @@ function App() {
                       </span>
                     </div>
                     <div className="ml-4 flex-shrink-0">
-                      <button className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                        Download
-                      </button>
+                      <button className="btn-blue">Download</button>
                     </div>
                   </li>
                 </ul>
